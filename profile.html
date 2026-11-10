@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f2">
+  <meta name="description" content="Create and edit your Recipe Book cooking profile.">
+  <title>Recipe Book | My Profile</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-page="profile">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Recipe Book home"><span class="brand-symbol" aria-hidden="true">✳</span> Recipe<span>Book</span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a class="nav-link" href="index.html">Home</a><a class="nav-link active" href="profile.html" aria-current="page">My profile</a></nav>
+    </div>
+  </header>
+
+  <main id="main" class="profile-page">
+    <div class="container profile-container">
+      <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to home</a>
+      <div class="profile-heading"><span class="eyebrow">YOUR OWN LITTLE CORNER</span><h1 id="profile-page-title">Create your profile<span class="heading-period">.</span></h1><p id="profile-page-subtitle">Before the recipes, let's get to know the cook.</p></div>
+      <p id="profile-message" class="form-message" role="status" aria-live="polite" hidden></p>
+
+      <section id="profile-form-panel" class="profile-card" aria-labelledby="form-heading">
+        <div class="form-intro"><div class="form-icon" aria-hidden="true">👩‍🍳</div><div><h2 id="form-heading">Tell us about yourself</h2><p>The basics are all you need to get started.</p></div></div>
+        <form id="profile-form">
+          <div class="form-grid">
+            <div class="field"><label for="display-name">Display name <span class="required-marker">*</span></label><input id="display-name" name="displayName" type="text" placeholder="e.g. Alex Johnson" autocomplete="nickname" maxlength="50" required><span class="field-hint">The name displayed on your profile.</span></div>
+            <div class="field"><label for="username">Username <span class="required-marker">*</span></label><div class="input-prefix-wrap"><span aria-hidden="true">@</span><input id="username" name="username" type="text" placeholder="alexcooks" autocomplete="off" minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}" title="3–20 letters, numbers, or underscores" required></div><span class="field-hint">3–20 letters, numbers or underscores.</span></div>
+          </div>
+          <div class="field"><label for="bio">A little about you <span class="optional-marker">(optional)</span></label><textarea id="bio" name="bio" placeholder="I love trying new recipes and making Sunday breakfast..." rows="4" maxlength="240"></textarea><div class="field-hint field-hint-end"><span>Share your cooking story.</span><span id="bio-count">0 / 240</span></div></div>
+          <div class="form-grid">
+            <div class="field"><label for="cuisine">Favorite type of food <span class="optional-marker">(optional)</span></label><select id="cuisine" name="cuisine"><option value="">Choose one</option><option>American</option><option>Italian</option><option>Mexican</option><option>Asian</option><option>Mediterranean</option><option>Indian</option><option>Other / a little of everything</option></select></div>
+            <div class="field"><label for="experience">Cooking experience <span class="optional-marker">(optional)</span></label><select id="experience" name="experience"><option value="">Choose one</option><option>Just getting started</option><option>Home cook</option><option>Experienced cook</option></select></div>
+          </div>
+          <div class="form-actions"><button class="button button-primary button-large" type="submit" id="save-profile-button">Create profile <span aria-hidden="true">→</span></button><button class="button button-outline button-large" type="button" id="cancel-edit" hidden>Cancel</button></div>
+          <p class="privacy-note"><span aria-hidden="true">🔒</span> Demo only: profile information is stored in this browser, not on a server. Don't enter sensitive information.</p>
+        </form>
+      </section>
+
+      <section id="profile-view-panel" class="profile-card profile-view" aria-labelledby="view-heading" hidden>
+        <div class="profile-banner"><span class="banner-spark" aria-hidden="true">✳</span></div>
+        <div class="profile-view-body"><div class="avatar" id="profile-avatar" aria-hidden="true">A</div><span class="profile-eyebrow">YOUR COOKING PROFILE</span><h2 id="view-heading"></h2><p class="profile-username" id="view-username"></p><p class="profile-bio" id="view-bio"></p>
+          <div class="profile-details"><div class="detail"><span class="detail-label">FAVORITE FOOD</span><strong id="view-cuisine"></strong></div><div class="detail"><span class="detail-label">EXPERIENCE</span><strong id="view-experience"></strong></div></div>
+          <div class="profile-buttons"><button type="button" class="button button-primary" id="edit-profile">Edit profile</button><button type="button" class="button button-danger-outline" id="delete-profile">Delete local profile</button></div>
+        </div>
+      </section>
+      <section id="my-recipes-section" class="my-recipes-section" aria-labelledby="my-recipes-heading" hidden>
+        <div class="recipes-section-heading">
+          <div>
+            <span class="eyebrow">YOUR PERSONAL COLLECTION</span>
+            <h2 id="my-recipes-heading">My Recipes<span class="heading-period">.</span></h2>
+            <p id="recipe-count" class="recipes-counter"></p>
+          </div>
+          <a class="button button-primary" href="recipe.html">+ Add recipe</a>
+        </div>
+        <p id="recipes-message" class="form-message" role="status" aria-live="polite" hidden></p>
+        <div id="recipes-empty" class="recipes-empty" hidden>
+          <span aria-hidden="true" class="recipes-empty-icon">📖</span>
+          <h3>No recipes yet</h3>
+          <p>Start your collection by adding a recipe you love.</p>
+          <a class="button button-outline" href="recipe.html">Create your first recipe</a>
+        </div>
+        <div id="recipes-list" class="user-recipe-grid"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">✳</span> Recipe<span>Book</span></a><span>Made for the joy of cooking.</span><span>© <span data-year></span> Recipe Book</span></div></footer>
+</body>
+</html>

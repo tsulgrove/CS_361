@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f2">
+  <meta name="description" content="Create or edit a recipe in your Recipe Book collection.">
+  <title>Recipe Book | Add Recipe</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body data-page="recipe">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Recipe Book home"><span class="brand-symbol" aria-hidden="true">✳</span> Recipe<span>Book</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="profile.html">My profile</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="profile-page">
+    <div class="container profile-container">
+      <a class="back-link" href="profile.html"><span aria-hidden="true">←</span> Back to my profile</a>
+      <div class="profile-heading">
+        <span class="eyebrow">SAVE THE RECIPES YOU LOVE</span>
+        <h1 id="recipe-page-title">Create a recipe<span class="heading-period">.</span></h1>
+        <p id="recipe-page-subtitle">Keep the ingredients and steps together in one place.</p>
+      </div>
+      <p id="recipe-message" class="form-message" role="status" aria-live="polite" hidden></p>
+      <section id="recipe-profile-required" class="profile-card" hidden>
+        <h2>Create a profile first</h2>
+        <p>You need a local cooking profile before you can save recipes.</p>
+        <a class="button button-primary" href="profile.html">Create a profile</a>
+      </section>
+      <section id="recipe-form-panel" class="profile-card" aria-labelledby="recipe-form-heading" hidden>
+        <div class="form-intro">
+          <div class="form-icon" aria-hidden="true">🍲</div>
+          <div><h2 id="recipe-form-heading">Recipe details</h2><p>Add your ingredients, instructions, and a few helpful details.</p></div>
+        </div>
+        <form id="recipe-form">
+          <div class="field">
+            <label for="recipe-title">Recipe name <span class="required-marker">*</span></label>
+            <input id="recipe-title" name="title" type="text" maxlength="100" placeholder="e.g. Grandma's chocolate chip cookies" required>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="recipe-category">Category <span class="required-marker">*</span></label>
+              <select id="recipe-category" name="category" required>
+                <option value="">Choose a category</option>
+                <option>Breakfast</option><option>Lunch</option><option>Dinner</option><option>Dessert</option><option>Snack</option><option>Drink</option><option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="recipe-servings">Servings <span class="optional-marker">(optional)</span></label>
+              <input id="recipe-servings" name="servings" type="number" min="1" max="99" step="1" placeholder="e.g. 4">
+            </div>
+          </div>
+          <div class="field">
+            <label for="recipe-description">Short description <span class="optional-marker">(optional)</span></label>
+            <textarea id="recipe-description" name="description" maxlength="400" rows="2" placeholder="What makes this recipe special?"></textarea>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="recipe-prep">Prep time (minutes) <span class="optional-marker">(optional)</span></label>
+              <input id="recipe-prep" name="prepMinutes" type="number" min="0" max="999" step="1" placeholder="e.g. 15">
+            </div>
+            <div class="field">
+              <label for="recipe-cook">Cook time (minutes) <span class="optional-marker">(optional)</span></label>
+              <input id="recipe-cook" name="cookMinutes" type="number" min="0" max="999" step="1" placeholder="e.g. 30">
+            </div>
+          </div>
+          <div class="field">
+            <label for="recipe-ingredients">Ingredients <span class="required-marker">*</span></label>
+            <textarea id="recipe-ingredients" name="ingredients" rows="7" maxlength="5000" placeholder="2 cups flour&#10;1 tsp baking powder&#10;1 cup milk" required></textarea>
+            <span class="field-hint">Put each ingredient on a separate line.</span>
+          </div>
+          <div class="field">
+            <label for="recipe-instructions">Instructions <span class="required-marker">*</span></label>
+            <textarea id="recipe-instructions" name="instructions" rows="9" maxlength="10000" placeholder="1. Preheat the oven...&#10;2. Mix the ingredients..." required></textarea>
+            <span class="field-hint">Put each step on its own line.</span>
+          </div>
+          <div class="form-actions">
+            <button class="button button-primary button-large" type="submit" id="save-recipe-button">Save recipe <span aria-hidden="true">→</span></button>
+            <a class="button button-outline button-large" href="profile.html">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-symbol" aria-hidden="true">✳</span> Recipe<span>Book</span></a><span>Made for the joy of cooking.</span><span>© <span data-year></span> Recipe Book</span></div></footer>
+</body>
+</html>
